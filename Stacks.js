@@ -18,11 +18,11 @@ class deck {
  
     isEmpty = () => this.size === 0;
 
-    peek = () =>  (this.isEmpty()? "Sorry buddy, nothing here" : `${this.top.color}-${this.top.number}`);
+    peek = () =>  (this.isEmpty()? "No cards to display!" : `${this.top.color}-${this.top.number}`);
 
     push = (color, number) => { 
         if(this.isFull()){
-            console.log("closed for business we're full.")
+            console.log("Deck is already full.")
         }
         else {
         const newNode = new card (color, number, this.top);
@@ -33,7 +33,7 @@ class deck {
 
     pop = () => {
         if(this.isEmpty()) {
-            console.log("nothing to give.")
+            console.log("Can't draw when the deck is empty.")
         }
         else {const popped = this.top;
         this.top = popped.next;
@@ -52,18 +52,24 @@ while (!Deck.isFull()) {
     Deck.push(color, number);
 }
 
+
 console.log(`---------\nPlayer 1: \n---------`);
+let player1 = [];
 for (i=1; i<6; i++) {
-    let cardarr = Deck.pop()
-console.log(`${i}- ${cardarr[0]}-${cardarr[1]}`)}
+    let cardarr = Deck.pop();
+    player1[i-1] = cardarr;
+    console.log(`${i}- ${cardarr[0]}-${cardarr[1]}`);
+}
 
 
 console.log(`---------\nPlayer 2: \n---------`);
+let player2 = [];
 for (i=1; i<6; i++) {
-    let cardarr = Deck.pop()
-console.log(`${i}- ${cardarr[0]}-${cardarr[1]}`)}
+    let cardarr = Deck.pop();
+    player2[i-1] = cardarr;
+    console.log(`${i}- ${cardarr[0]}-${cardarr[1]}`);
+}
 
 
 
 console.log(`\n\n\n-------------\nFirst card in deck: ${Deck.peek()}\n-------------`);
-
