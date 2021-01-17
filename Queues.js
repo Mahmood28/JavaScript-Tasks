@@ -27,8 +27,8 @@ class Queue {
             console.log('Please wait. The queue is full.')
         } else {
             let newNode = new Node(groupSize);
-            while (newNode.groupSize > 12) {
-                newNode = new Node(12);
+            while (groupSize > 12) {
+               let newNode = new Node(12);
                 if(this.isEmpty()) {
                     this.front = newNode;
                     this.back = newNode;
@@ -37,7 +37,7 @@ class Queue {
                 this.back = newNode;
             }
         this.length ++ ;
-        newNode = new Node (parseInt(groupSize) - 12)
+        groupSize -= 12;
             }
             if(this.isEmpty()) {
                 this.front = newNode;
@@ -74,7 +74,7 @@ class Queue {
 Park = new Queue ();
 Park.displayWT();
 Park.enqueue(10);
-Park.enqueue(20);
+Park.enqueue(100);
 Park.enqueue(2);
 Park.enqueue(5);
 Park.displayWT();
