@@ -39,6 +39,7 @@ class Queue {
         this.length ++ ;
         groupSize -= 12;
             }
+            newNode = new Node(groupSize);
             if(this.isEmpty()) {
                 this.front = newNode;
                 this.back = newNode;
